@@ -219,10 +219,10 @@ ts-features@^1.3.5:
   resolved "https://registry.yarnpkg.com/ts-features/-/ts-features-1.3.5.tgz#9254c34e2084ebcb22f1167165408e5ed95ba8c1"
   integrity sha512-fTdFEhXe1B5z4KoEytYvegv8jYvrer0GrhsiI7iF4XtNqEZ0B4qY7eaLFa6/wEobRMvGsBYD86/VHxI91MC1ew==
 
-vite@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.2.tgz#014c30e5163844f6e96d7fe18fbb702236516dc6"
-  integrity sha512-PcNtT5HeDxb3QaSqFYkEum8f5sCVe0R3WK20qxgIvNBZPXU/Obxs/+ubBMeE7nLWeCo2LDzv+8hRYSlcaSehig==
+vite@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.3.tgz#067ada47ebd52e078d014bf1f92badda9d10564d"
+  integrity sha512-kLU+m2q0Y434Y1kCy3TchefAdtFso0ILi0dLyFV8Us3InXTU11H/B5ZTqCKIQHzSKNxVG/yEx813EA9f1imQ9A==
   dependencies:
     esbuild "^0.17.5"
     postcss "^8.4.21"
