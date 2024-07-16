@@ -8,9 +8,12 @@ export interface ParticleBase {
     mass: number;
     position: Vector;
     velocity: Vector;
+
+    _renderData?: any;
 };
 
 export type Particle<Key extends string, Prop> = ParticleBase & { [K in Key]: Prop; };
+
 export interface Force {
     target: number;
     x: number;

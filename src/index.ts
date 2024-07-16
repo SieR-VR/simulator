@@ -16,25 +16,47 @@ const physics = createPhysicsSystem([gravity]);
 
 function render() {
     gl.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-    gl.fillStyle = 'black';
-    
+
     physics.after(1).getParticles().forEach(particle => {
-        gl.beginPath();
-        gl.arc(particle.position.x, particle.position.y, particle.mass, 0, 2 * Math.PI);
-        gl.fill();
+        particle._renderData = particle._renderData || [];
+        particle._renderData.push({ ...particle.position });
+
+        if (particle._renderData.length > 100) {
+            particle._renderData.shift();
+        }
+
+        gl.fillStyle = 'black';
+
+        particle._renderData.forEach((point, index) => {
+            gl.fillStyle = `rgba(0, 0, 0, ${index / 10})`;
+
+            gl.beginPath();
+            gl.arc(point.x, point.y, (index) / 10, 0, Math.PI * 2);
+            gl.fill()
+        })
+
     });
 
     requestAnimationFrame(render);
 }
 
-for (let i = 0; i < 50; i++) {
-    physics.addParticle({ 
-        x: (Math.random() - 0.5) * 1000, 
-        y: (Math.random() - 0.5) * 1000 
-    }, { 
-        x: 0, 
-        y: 0 
-    }, Math.random() * 100);
-}
+physics.addParticle(
+    { x: -200, y: 0 },
+    { x: 0, y: 10 },
+    60000
+);
+
+physics.addParticle(
+    { x: 100, y: Math.sqrt(3) * 100 },
+    { x: Math.sqrt(3) * 5, y: -5 },
+    60000
+);
+
+physics.addParticle(
+    { x: 100, y: -Math.sqrt(3) * 100 },
+    { x: -Math.sqrt(3) * 5, y: -5 },
+    60000
+);
+
 
 render();
